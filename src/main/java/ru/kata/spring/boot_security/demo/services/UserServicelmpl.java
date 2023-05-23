@@ -38,7 +38,8 @@ public class UserServicelmpl implements UserServise, UserDetailsService {
 
     @Override
     @Transactional
-    public void addUser(User user) {
+    public void addUser(User user, List<Role> listOfRoles) {
+        user.setRoles(listOfRoles);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
         userRepository.save(user);
@@ -52,7 +53,9 @@ public class UserServicelmpl implements UserServise, UserDetailsService {
 
     @Override
     @Transactional
-    public void updateUser(User user) {
+    public void updateUser(User user,  int id, List<Role> listOfRoles) {
+        user.setId(id);
+        user.setRoles(listOfRoles);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
         userRepository.save(user);

@@ -50,8 +50,12 @@
     <input type = "text" th:field="*{email}" id="email"/>
     <br>
     <br/>
-    <label for="role">Enter role (1 or 2): </label>
-    <input type="text" th:field="*{roles}" id="role"/>
+    <label>Roles:
+        <select class="form-control" name="rolesName" id="roles" multiple="multiple" size="2">
+            <option value="1">ADMIN</option>
+            <option value="2">USER</option>
+        </select>
+    </label>
     <br>
     <br/>
     <input type = "submit" value="Create!"/>
